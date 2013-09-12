@@ -1,0 +1,46 @@
+{
+  "name": "grunt-browserstack-tunnel",
+  "description": "Start BrowserStack tunnel.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/L42y/grunt-browserstack-tunnel",
+  "author": {
+    "name": "L42y",
+    "email": "423300@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/L42y/grunt-browserstack-tunnel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/L42y/grunt-browserstack-tunnel/issues"
+  },
+  "licenses": [
+    {
+      "type": "WTFPL",
+      "url": "http://wtfpl.org/"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "browserstacktunnel-wrapper": "~1.0.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin",
+    "browserstack"
+  ]
+}
