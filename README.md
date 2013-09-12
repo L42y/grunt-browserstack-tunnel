@@ -73,7 +73,9 @@ grunt.initConfig({
       accessKey: 'fakeKey'
     },
     development: {
-      port: 9000
+      options: {
+        port: 9000
+      }
     },
   },
 })
