@@ -1,7 +1,7 @@
 {
   "name": "grunt-browserstack-tunnel",
   "description": "Start BrowserStack tunnel.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/L42y/grunt-browserstack-tunnel",
   "author": {
     "name": "L42y",
