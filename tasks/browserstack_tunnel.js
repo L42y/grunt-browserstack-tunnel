@@ -1,5 +1,6 @@
 'use strict';
 module.exports = function(grunt) {
+  var browserStackTunnel;
   grunt.registerMultiTask('browserstackTunnel', 'Create BrowserStack tunnel', function() {
     var options = this.options({
       accessKey: '',
@@ -9,7 +10,7 @@ module.exports = function(grunt) {
     });
 
     var BrowserStackTunnel = require('browserstacktunnel-wrapper');
-    var browserStackTunnel = new BrowserStackTunnel({
+    browserStackTunnel = new BrowserStackTunnel({
       key: options.accessKey,
       hosts: [{
         name: options.hostname,
@@ -30,4 +31,35 @@ module.exports = function(grunt) {
       }
     });
   });
+
+  grunt.registerMultiTask('browserstackTunnel-close', 'Close BrowserStack tunnel', function() {
+    var done = this.async();
+
+    var options = this.options({
+      accessKey: '',
+      hostname: 'localhost',
+      port: 3000,
+      sslFlag: 0
+    });
+
+    var BrowserStackTunnel = require('browserstacktunnel-wrapper');
+    browserStackTunnel = new BrowserStackTunnel({
+      key: options.accessKey,
+      hosts: [{
+        name: options.hostname,
+        port: options.port,
+        sslFlag: options.sslFlag
+      }]
+    });
+
+    browserStackTunnel.stop(function(err) {
+      if(err) {
+        grunt.log(err);
+        done(err);
+      }
+
+      grunt.log.ok('Browserstack tunnel closed');
+      done();
+    });
+  })
 };
