@@ -19,6 +19,11 @@ module.exports = function(grunt) {
     });
 
     var done = this.async();
+    var cleanup = function () {
+      grunt.log.ok('stopping tunnel');
+      browserStackTunnel.stop(done);
+    };
+    process.stdin.resume();
     browserStackTunnel.start(function (error) {
       if (error) {
         grunt.log.error('Could not start tunnel');
@@ -26,8 +31,9 @@ module.exports = function(grunt) {
         done(false);
       } else {
         grunt.log.ok('Start tunnel successfully');
-        done();
-      }
-    });
+        process.on('uncaughtException', cleanup);
+        process.on('exit', cleanup);
+        process.on('SIGINT', cleanup);
+    }});
   });
 };
