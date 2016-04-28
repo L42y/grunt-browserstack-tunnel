@@ -61,6 +61,12 @@ Default value `0`
 
 Whether to use HTTPS
 
+#### options.force
+Type: `Boolean`
+Default value `true`
+
+Kill other running instances of BrowserStack Local.
+
 ### Usage Examples
 
 #### Custom Options

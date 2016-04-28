@@ -5,7 +5,8 @@ module.exports = function(grunt) {
       accessKey: '',
       hostname: 'localhost',
       port: 3000,
-      sslFlag: 0
+      sslFlag: 0,
+      force: true
     });
 
     var BrowserStackTunnel = require('browserstacktunnel-wrapper');
@@ -15,7 +16,8 @@ module.exports = function(grunt) {
         name: options.hostname,
         port: options.port,
         sslFlag: options.sslFlag
-      }]
+      }],
+      force: options.force
     });
 
     var done = this.async();
